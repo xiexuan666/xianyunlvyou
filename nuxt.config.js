@@ -5,14 +5,15 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title:'萱萱小可爱的旅游网',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel:'stylesheet',type:'text/css',href:'//at.alicdn.com/t/font_1168872_ehvuah8v57g.css'}
     ]
   },
   /*
@@ -23,7 +24,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'assets/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -48,6 +50,9 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    // baseURL: "http://157.122.54.189:9095" // 新增备用地址
+    baseURL: "http://127.0.0.1:1337"
   },
   /*
   ** Build configuration

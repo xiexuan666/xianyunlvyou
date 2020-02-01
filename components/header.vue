@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
        <el-row type="flex" justify="space-between" class="main">
       <!-- logo -->
       <div class="logo">
@@ -16,10 +16,27 @@
       </el-row>
       <!-- 登录用户信息 -->
       <el-row type="flex" align="middle"> 
+          <el-dropdown v-if="false">
+              <el-row type="flex" align="middle" class="el-dropdow-link">
+                  <nuxt-link to="#">
+                      <img src="https://www.qzone.cc/qqtouxiang/nvsheng/2959229.html"/>
+                      用户名
+                  </nuxt-link>
+                  <i class="el-icon-caret-bottom el-icon--right"></i>
+              </el-row>
+              <el-dropdown-menu slot="dropdown">
+                  <el-dropdow-item>
+                      <nuxt-link to="#">个人中心</nuxt-link>
+                  </el-dropdow-item>
+                  <el-dropdown-item>
+                      <div @click="handleLogout">退出</div>
+                  </el-dropdown-item>
+              </el-dropdown-menu>
+          </el-dropdown>
           <nuxt-link to="/user/logo" class="account-link" >登录/注册</nuxt-link>  
       </el-row>
        </el-row>
-  </div>
+  </header>
 </template>
 
 <script>

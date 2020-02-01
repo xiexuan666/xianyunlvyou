@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-机票模块首页
+酒店模块首页
   </div>
 </template>
 

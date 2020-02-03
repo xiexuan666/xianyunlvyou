@@ -4,7 +4,7 @@
       <!-- logo -->
       <div class="logo">
         <nuxt-link to="/">
-        <img src="http://157.122.54.189:9093/images/logo.jpg" alt="">
+        <img src="/logo.jpg" alt />
         </nuxt-link>
       </div>
       <!-- 菜单栏 -->
@@ -33,7 +33,7 @@
                   </el-dropdown-item>
               </el-dropdown-menu>
           </el-dropdown>
-          <nuxt-link to="/user/logo" class="account-link" >登录/注册</nuxt-link>  
+          <nuxt-link to="/user/login" class="account-link" >登录/注册</nuxt-link>  
       </el-row>
        </el-row>
   </header>

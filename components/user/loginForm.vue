@@ -23,6 +23,10 @@
     <p class="form-text">
         <nuxt-link to="#">忘记密码</nuxt-link>
         </p>
+        <!-- 不存在用户信息展示登录注册连接 -->
+        <nuxt-link to="/user/login" class="account-link"   >
+        </nuxt-link>
+        {{$store.state.user.userInfo.user.nickname}}
     <el-button 
     class="submit" 
     type="primary" 
@@ -82,6 +86,8 @@ export default {
                   const {data} =res;
                   //保存到本地
                   localStorage.setItem("store",JSON.stringify(data));
+                  //通过commit调用mutations中的方法
+                  this.$store.commit('user/setUserInfo',data);
 
                   //跳转到首页
                   //this.$router.push("/")

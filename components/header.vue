@@ -41,7 +41,12 @@
 
 <script>
 export default {
-
+   mounted(){
+       //测试打印仓库中的数据
+       //this.$store.state代表是整个大的仓库，user是模块名字，name模块下的数据
+       console.log(this.$store.state.user.name);
+       
+   }
 }
 </script>
 

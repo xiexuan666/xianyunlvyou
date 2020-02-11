@@ -6,7 +6,7 @@
         <div
           class="banner-image"
           :style="
-            `background:url(${item.url}) center center no-repeat;
+            `background:url(${$axios.defaults.baseURL}${item.url}) center center no-repeat;
       background-size:contain contain;`
           "
         ></div>
@@ -17,18 +17,18 @@
       <div class="search-bar">
         <!-- tab栏 -->
         <el-row type="flex" class="search-tab">
-          <span v-for="(item,index) in options"
-          :key="index"
-          @click="handleClick(index)"
-          :class="{active:current===index}">
-            <i>{{item.name}}</i>
+          <span
+            v-for="(item, index) in options"
+            :key="index"
+            @click="handleClick(index)"
+            :class="{ active: current === index }"
+          >
+            <i>{{ item.name }}</i>
           </span>
         </el-row>
         <!-- 输入框 -->
         <el-row type="flex" align="middle" class="search-input">
-          <input 
-          :placeholder="options[current].placeholder" 
-          />
+          <input :placeholder="options[current].placeholder" />
           <i class="el-icon-search"></i>
         </el-row>
       </div>
@@ -79,15 +79,21 @@ export default {
     });
   },
   methods: {
+    // 切换tab栏时候触发
     handleClick(index) {
+      // 设置当前tab
       this.current = index;
+
+      // 如果切换的机票tab，那么直接跳转到机票首页
       const item = this.options[index];
       if (item.name === "机票") {
         return this.$router.push(item.pageUrl);
       }
     },
+    // 搜索时候触发
     handleSearch() {
       const item = this.options[this.current];
+      // 跳转时候给对应的页面url加上搜索内容参数
       this.$router.push(item.pageUrl + this.searchValue);
     }
   }

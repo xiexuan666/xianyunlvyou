@@ -14,3 +14,52 @@ export const mutations = {
         state.userInfo=data;
     }
 }
+
+// 固定属性 异步修改state中的值的方法,一般放接口的请求
+export const actions = {
+     
+  // 登录的方法
+  // 第一个参数必须是store 第二个参数是调用传入的参数
+  login(store, data) {
+    //   提交登录接口
+    // 用return是因为这边返回的是一个promise
+    return this.$axios({
+      url: "/accounts/login",
+      method: "POST",
+      data
+    }).then(res => {
+      // data是要保存到userInfo中的
+      const { data } = res;
+      // 调用commit保存数据到state
+      store.commit("setUserInfo", data);
+    });
+  },
+
+  // 注册的方法
+  register(store, data) {
+          // 调用接口
+   return this.$axios({
+      url: "/accounts/register",
+      method: "POST",
+      data
+    }).then(res => {
+     // data是要保存到userInfo中的
+     const { data } = res;
+     // 调用commit保存数据到state
+     store.commit("setUserInfo", data);
+    });
+  },
+
+  // 发送手机的验证码  data是手机号码的字符串
+  sendCaptcha(store, data) {
+    return this.$axios({
+      url: "/captchas",
+      method: "POST",
+      data: {
+        tel: data
+      }
+    }).then(res =>{
+      return res
+    })
+  }
+};

@@ -46,6 +46,7 @@
           placeholder="请选择日期"
           style="width: 100%;"
           @change="handleDate"
+          :picker-options="pickerOptions"
           v-model="form.departDate"
         ></el-date-picker>
       </el-form-item>
@@ -82,7 +83,13 @@ export default {
       //   出发城市的列表
       departData: [],
       //   到达城市的列表
-      destData: []
+      destData: [],
+      //日期可选配置
+      pickerOptions:{
+        disabledDate(time){
+          return time.getTime()+ 3600 * 1000 * 24 < Date.now();
+        }
+      }
     };
   },
   methods: {

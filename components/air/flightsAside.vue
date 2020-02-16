@@ -40,7 +40,7 @@
         >
           <div class="air-info">
             <div class="to-from">
-              {{ item.departCity }} - {{ item.departCity }}
+              {{ item.departCity }} - {{ item.destCity }}
             </div>
             <p>{{ item.departDate }}</p>
           </div>

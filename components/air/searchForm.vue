@@ -236,6 +236,15 @@ export default {
             return;
 
         }
+        //添加到本地存储
+        const airs = JSON.parse(localStorage.getItem('airs') || `[]`);
+        airs.push(this.form);
+        localStorage.setItem("airs",JSON.stringify(airs));
+
+        this.$router.push({
+          path:"/air/flights",
+          query:this.form
+        })
 
 
       //   console.log(this.form);

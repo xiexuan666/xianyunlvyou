@@ -53,7 +53,7 @@
               ￥{{ item.org_settle_price }}
             </el-col>
             <el-col :span="3" class="choose-button">
-              <el-button type="warning" size="mini">
+              <el-button type="warning" size="mini" @click="handleChoose(data.id,item.seat_xid)">
                 选定
               </el-button>
               <p>剩余：{{ item.discount }}</p>
@@ -71,6 +71,18 @@ export default {
         return {
             isShow:false  //是否展开列表
         }
+    },
+    methods:{
+      //选定按钮触发跳转
+      handleChoose(id,seatId){
+        this.$router.push({
+          path:"/air/order",
+          query:{
+            id,
+            seat_xid:seatId
+          }
+        })
+      }
     },
   props: {
     // 数据

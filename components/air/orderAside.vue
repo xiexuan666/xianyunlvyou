@@ -41,7 +41,7 @@
         </el-row>
         <el-row type="flex" justify="space-between" align="middle" class="info-bar">
             <span>应付总额：</span>
-            <span class="price">￥{{allPrice}} </span>
+            <span class="price">￥{{Number($store.state.air.allPrice).toFixed(2)}} </span>
         </el-row>           
     </div>
 </template>
@@ -51,13 +51,9 @@ export default {
     props: {
         data: {
             type: Object,
-            default: {}
-        },
-
-        //总金额
-        allPrice : {
-            type: Number,
-            default:0
+            default: {
+                seat_infos: {}
+            }
         }
     },
 

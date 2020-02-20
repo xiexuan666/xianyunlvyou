@@ -2,51 +2,22 @@
     <div class="container">
         <el-row type="flex" justify="space-between">
             <!-- 订单表单 -->
-          <OrderForm  :data="infoData" @setAllPrice=setAllPrice />
-                
-            
+            <OrderForm/>
 
             <!-- 侧边栏 -->
-            <OrderAside  :data="infoData" :allPrice= allPrice />
-                          
-            
+            <OrderAside :data="$store.state.air.orderDetail"/>
         </el-row>
     </div>
 </template>
 
 <script>
 import OrderForm from "@/components/air/orderForm.vue";
-import OrderAside from "@/components/air/OrderAside.vue";
-export default {
-    data(){
-        return{
-            //机票信息
-            infoData : {
-                insurances:[] , //初始化保险数据
-                seat_infos:{}
-            },
-            allPrice:0
-        }
-    },
-    components:{
-        OrderForm,OrderAside
-    },
-    mounted() {
-    const{query}  = this.$route;
+import OrderAside from "@/components/air/orderAside.vue";
 
-    this.$axios({
-        url:`airs/${query.id}`,
-        params:{
-            seat_xid:query.seat_xid
-        }
-     }).then(res => {
-         this.infoData = res.data
-     })
-    },
-    methods:{
-        setAllPrice(price)  {
-            this.allPrice = price;
-        }
+export default {
+    components: {
+        OrderForm,
+        OrderAside
     }
 }
 </script>

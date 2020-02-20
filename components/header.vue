@@ -19,7 +19,6 @@
 
             <!-- 登录/用户信息 -->
             <el-row type="flex" align="middle">
-
                 <!-- 如果用户存在则展示用户信息，用户数据来自store -->
                 <el-dropdown v-if="$store.state.user.userInfo.token">
                     <el-row type="flex" align="middle" class="el-dropdown-link">
@@ -49,20 +48,17 @@
 </template>
 <script>
 export default {
-   
     methods: {
-        // 用户退出 
-        // 把vuex里面的数据清除就行 user和token
-        // 用同步的mutations方法去操作
+        // 用户退出
         handleLogout(){
-            this.$store.commit("user/setUserInfo",{
-                token:"",
-                user:{} //一定要使用对象
+            this.$store.commit("user/setUserInfo", {
+                token: "",
+                user: {} // 一定要使用对象
             })
         },
     },
-    mounted () {
-        // console.log(this.$store.state.user.name);
+
+    mounted(){
         
     }
 }

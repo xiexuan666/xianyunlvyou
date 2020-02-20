@@ -1,12 +1,16 @@
 <template>
   <div class="index">
-酒店模块首页
+
+<Map/>
   </div>
 </template>
 
 <script>
+import Map from "@/components/hotel/map.vue";
 export default {
-
+components:{
+  Map
+}
 }
 </script>
 
